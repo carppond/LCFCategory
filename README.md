@@ -22,7 +22,7 @@ pod "LCFCategory"
 
 ## Author
 
-JustkeepRunning, 634893985@qq.com
+JustkeepRunning, 810646506@qq.com
 
 ## License
 
