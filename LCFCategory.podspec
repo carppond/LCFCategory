@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name                   = "LCFCategory"
-  s.version                = "1.0.0"
+  s.version                = "1.0.1"
   s.summary                = "category"
   s.ios.deployment_target  = '8.0'
   s.homepage               = "https://github.com/lixianshen/LCFCategory"

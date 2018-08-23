@@ -31,6 +31,18 @@
     rect.size.width = round(lcf_width);
     self.frame = rect;
 }
+- (CGPoint)lcf_origin
+{
+    return self.frame.origin;
+}
+
+- (void)setLcf_origin:(CGPoint)lcf_origin
+{
+    CGRect rect = self.frame;
+    rect.origin = lcf_origin;
+    self.frame = rect;
+}
+
 -(CGFloat)lcf_width{
     return self.frame.size.width;
 }
@@ -131,6 +143,106 @@
 -(CGFloat)lcf_MaxX{
     
     return CGRectGetMaxX(self.frame);
+}
+
+- (void)heightEqualToView:(UIView *)view {
+    
+    self.lcf_height = view.lcf_height;
+}
+
+- (void)widthEqualToView:(UIView *)view {
+    
+    self.lcf_width = view.lcf_width;
+}
+
+- (void)setLCF_centerX:(CGFloat)centerX
+{
+    CGPoint center = CGPointMake(self.lcf_centerX, self.lcf_centerY);
+    center.x = centerX;
+    self.center = center;
+}
+
+- (void)setLCF_centerY:(CGFloat)centerY
+{
+    CGPoint center = CGPointMake(self.lcf_centerX, self.lcf_centerY);
+    center.y = centerY;
+    self.center = center;
+}
+
+- (void)centerXEqualToView:(UIView *)view
+{
+    UIView *superView = view.superview ? view.superview : view;
+    CGPoint viewCenterPoint = [superView convertPoint:view.center toView:self.topSuperView];
+    CGPoint centerPoint = [self.topSuperView convertPoint:viewCenterPoint toView:self.superview];
+    self.lcf_centerX = centerPoint.x;
+}
+
+- (void)centerYEqualToView:(UIView *)view
+{
+    UIView *superView = view.superview ? view.superview : view;
+    CGPoint viewCenterPoint = [superView convertPoint:view.center toView:self.topSuperView];
+    CGPoint centerPoint = [self.topSuperView convertPoint:viewCenterPoint toView:self.superview];
+    self.lcf_centerY = centerPoint.y;
+}
+
+- (void)centerEqualToView:(UIView *)view
+{
+    UIView *superView = view.superview ? view.superview : view;
+    CGPoint viewCenterPoint = [superView convertPoint:view.center toView:self.topSuperView];
+    CGPoint centerPoint = [self.topSuperView convertPoint:viewCenterPoint toView:self.superview];
+    self.lcf_centerX = centerPoint.x;
+    self.lcf_centerY = centerPoint.y;
+}
+
+- (void)fromTheTop:(CGFloat)distance ofView:(UIView *)view
+{
+    UIView *superView = view.superview ? view.superview : view;
+    CGPoint viewOrigin = [superView convertPoint:view.lcf_origin toView:self.topSuperView];
+    CGPoint newOrigin = [self.topSuperView convertPoint:viewOrigin toView:self.superview];
+    
+    self.lcf_y = newOrigin.y - distance - self.lcf_height;
+}
+
+- (void)fromTheBottom:(CGFloat)distance ofView:(UIView *)view
+{
+    UIView *superView = view.superview ? view.superview : view;
+    CGPoint viewOrigin = [superView convertPoint:view.lcf_origin toView:self.topSuperView];
+    CGPoint newOrigin = [self.topSuperView convertPoint:viewOrigin toView:self.superview];
+    
+    self.lcf_y = floorf(newOrigin.y + distance + view.lcf_height);
+}
+
+- (void)fromTheLeft:(CGFloat)distance ofView:(UIView *)view
+{
+    UIView *superView = view.superview ? view.superview : view;
+    CGPoint viewOrigin = [superView convertPoint:view.lcf_origin toView:self.topSuperView];
+    CGPoint newOrigin = [self.topSuperView convertPoint:viewOrigin toView:self.superview];
+    
+    self.lcf_x = newOrigin.x - distance - self.lcf_width;
+}
+
+- (void)fromTheRight:(CGFloat)distance ofView:(UIView *)view
+{
+    UIView *superView = view.superview ? view.superview : view;
+    CGPoint viewOrigin = [superView convertPoint:view.lcf_origin toView:self.topSuperView];
+    CGPoint newOrigin = [self.topSuperView convertPoint:viewOrigin toView:self.superview];
+    
+    self.lcf_x = newOrigin.x + distance + view.lcf_width;
+}
+
+- (UIView *)topSuperView
+{
+    UIView *topSuperView = self.superview;
+    
+    if (topSuperView == nil) {
+        topSuperView = self;
+    } else {
+        while (topSuperView.superview) {
+            topSuperView = topSuperView.superview;
+        }
+    }
+    
+    return topSuperView;
 }
 
 

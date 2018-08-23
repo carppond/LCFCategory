@@ -31,6 +31,9 @@
 @property (nonatomic, assign) CGFloat lcf_top;
 /// bottom
 @property (nonatomic, assign) CGFloat lcf_bottom;
+/// lcf_origin
+@property (nonatomic, assign) CGPoint lcf_origin;
+
 /// 最大Y值
 -(CGFloat)lcf_MaxY;
 /// 最小Y值
@@ -39,5 +42,27 @@
 -(CGFloat)lcf_MinX;
 /// 最大X值
 -(CGFloat)lcf_MaxX;
+
+- (void)heightEqualToView:(UIView *)view;
+
+- (void)widthEqualToView:(UIView *)view;
+
+- (void)setLCF_centerX:(CGFloat)centerX;
+
+- (void)setLCF_centerY:(CGFloat)centerY;
+
+- (void)centerXEqualToView:(UIView *)view;
+
+- (void)centerYEqualToView:(UIView *)view;
+
+- (void)centerEqualToView:(UIView *)view;
+
+- (void)fromTheTop:(CGFloat)distance ofView:(UIView *)view;
+
+- (void)fromTheBottom:(CGFloat)distance ofView:(UIView *)view;
+
+- (void)fromTheLeft:(CGFloat)distance ofView:(UIView *)view;
+
+- (void)fromTheRight:(CGFloat)distance ofView:(UIView *)view;
 
 @end
