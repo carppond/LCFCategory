@@ -2,7 +2,7 @@
 //  NSString+LCFCategory.h
 //  Pods
 //
-//  Created by lichengfu on 2017/8/16.
+//  Created by lichengfu575@gmail.com on 2017/8/16.
 //
 //
 
