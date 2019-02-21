@@ -39,10 +39,6 @@ static void restartIgnoreEvent () {
 
 - (void)LCF_sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event {
     
-    if ([LCFTool isWxbAccordToTheCurrentController]) {
-        [self LCF_sendAction:action to:target forEvent:event];
-        return;
-    }
     if ([self isKindOfClass:[UIButton class]]) {
         self.clickDurationTime = self.clickDurationTime == 0 ? defaultDurationTime : self.clickDurationTime;
         if (_isIgnoreEvent) {
