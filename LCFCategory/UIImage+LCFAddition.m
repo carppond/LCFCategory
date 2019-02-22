@@ -10,6 +10,22 @@
 
 @implementation UIImage (LCFAddition)
 
++ (UIImage *)imageClearBlueOfImage:(UIImage *)image
+                           redData:(char *)redData {
+    
+    return [self imageClearTraceOfImage:image redData:redData value:2];
+}
++ (UIImage *)imageClearRedOfImage:(UIImage *)image
+                          redData:(char *)redData {
+    
+    return [self imageClearTraceOfImage:image redData:redData value:1];
+}
++ (UIImage *)imageClearTraceOfImage:(UIImage *)image
+                            redData:(char *)redData {
+    
+    return [self imageClearTraceOfImage:image redData:redData value:3];
+}
+
 + (UIImage *)imageClearTraceOfImage:(UIImage *)image
                             redData:(char *)redData
                               value:(unsigned int)value {
@@ -216,4 +232,5 @@
     char *red = (char *)beginByte;
     return red;
 }
+
 @end

@@ -14,6 +14,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*!
+*  Clear the blue color from the image.
+*
+*  @param  image - The image after black and white processing.
+*  @param  redData - Color data,by method'[UIImage redDataOfImage:]'.
+@  @return - The image after clear the blue color.
+*/
++ (UIImage *)imageClearBlueOfImage:(UIImage *)image
+                           redData:(char *)redData;
+
+/*!
+ *  Clear the red color from the image.
+ *
+ *  @param  image - The image after black and white processing.
+ *  @param  redData - Color data,by method'[UIImage redDataOfImage:]'.
+ @  @return - The image after clear the red color.
+ */
++ (UIImage *)imageClearRedOfImage:(UIImage *)image
+                          redData:(char *)redData;
+
+/*!
+ *  Clear the red and blue color from the image.
+ *
+ *  @param  image - The image after black and white processing.
+ *  @param  redData - Color data,by method'[UIImage redDataOfImage:]'.
+ @  @return - The image after clear the color.
+ */
++ (UIImage *)imageClearTraceOfImage:(UIImage *)image
+                            redData:(char *)redData;
+
+/*!
  *  Clear the red and blue color from the image.
  *
  *  @param  image - The image after black and white processing.
