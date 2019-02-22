@@ -12,14 +12,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (LCFAddition)
 
+
 /*!
- *  去除红色或者蓝色.
+ *  Clear the red and blue color from the image.
  *
- *  @param image 灰度(黑白,二值化)处理之后的图片.
- *  @param redData 传''.
- *  @param value 去除红色传值1, 去除蓝色传值2,同时去除红色和蓝色传值3.
+ *  @param  image - The image after black and white processing.
+ *  @param  redData - Color data,by method'[UIImage redDataOfImage:]'.
+ *  @param  value - Clear red color 'value = 1'; Clear blue color 'value = 2';Clear the red and blue color 'value = 3';
+ @  @return - The image after clear the color.
  */
-- (UIImage *)imageClearTraceOfImage:(UIImage *)image redData:(char *)redData value:(unsigned int)value;
++ (UIImage *)imageClearTraceOfImage:(UIImage *)image
+                            redData:(char *)redData
+                              value:(unsigned int)value;
+
+/*!
+ *  Get the color data.
+ *
+ *  @param image - Original image.
+ *  @return char * - Color data.
+ */
++ (char *)redDataOfImage:(UIImage *)image;
 
 @end
 
